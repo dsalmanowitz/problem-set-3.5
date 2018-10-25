@@ -21,11 +21,11 @@ public class ProblemSet3_5 {
 		
 		// test your solutions here
 		
-		//ps.primes(1, 1000);
-		//ps.leapYears(3);
-		ps.palindromicNumbers(55);
-		//ps.fibonacci(23);;
-		//ps.multiples(2, 3, 40);
+		ps.primes(1, 1000);
+		ps.leapYears(100);
+		ps.palindromicNumbers(527);
+		ps.fibonacci(23);;
+		ps.multiples(2, 3, 40);
 	}
 	
 	/**
@@ -117,20 +117,18 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void palindromicNumbers(int number) {
-		double reverse = 0;
-		int numDigits = 1;
-		for (int i = 10; number / i > 0; i *= 10) {
-			numDigits += 1;
-		}
-		for (int j = numDigits; j > 1; j--) {
-			reverse = reverse * 10 + (number % Math.pow(10, (double)j - 1));
-			System.out.println(reverse);
+		int reverse = 0;
+		int n = number;
+		while (n != 0) {
+			int digit = n % 10;
+			reverse = reverse * 10 + digit;
+			n /= 10;
 		}
 		
 		if (reverse == number) {
 			System.out.println(number + " is a palindromic number.");
 		} else {
-			System.out.print(number + " is not a palindromic number.");
+			System.out.println(number + " is not a palindromic number.");
 		}
 	}
 	
